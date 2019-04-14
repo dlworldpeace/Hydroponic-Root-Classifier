@@ -46,10 +46,11 @@ def create_validation_set(test_partition_name):
 
 def main():
 
-    training_image_names = get_image_names("allData/training")
-    validation_set = training_image_names[:134]
-    for name in validation_set:
-        rename(join("allData/training", name), join("allData/validation", name))
+    image_names = get_image_names("allData/validation")
+    print(len(image_names))
+    for name in image_names:
+        if name.endswith("a.jpg"):
+            rename(join("allData/validation", name), join("allData/validation/hairy", name))
 
 
 
