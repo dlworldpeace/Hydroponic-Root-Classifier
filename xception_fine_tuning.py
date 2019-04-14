@@ -1,7 +1,7 @@
 # we use the pre-trained xception model for image classification,
 # and then add layers to contextualize to our specific problem.
 
-from keras.applications.xception import Xception, decode_predictions
+from keras.applications.xception import Xception, decode_predictions, preprocess_input
 import cv2 as cv
 import numpy as np
 print("Module imports successful.")
@@ -10,15 +10,13 @@ print("Module imports successful.")
 
 # import images
 # full_path = ""~/CS/Hydroponic-Root-Classifier/"
-hairy_root_path = "dataset/hairy_root/"
-non_hairy_root_path = "dataset/non_hairy_root/"
 
-test_image = cv.imread(hairy_root_path + "1_a.jpg")
-# test_image2 = cv.imread(hairy_root_path + "2_a.jpg")
-# test_images = [test_image, test_image2]
-# for img in test_images:
-#     img = np.expand_dims(img, axis=0)
-xception_preprocess_input(test_image)
+test_image = cv.imread("allData/1_a.jpg")
+print(test_image.shape)
+
+preprocess_input(test_image) # doesn't change input dimensions
+
+
 
 
 # build pre-trained xception model
