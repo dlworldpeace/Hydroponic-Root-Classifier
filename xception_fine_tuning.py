@@ -17,8 +17,6 @@ print(test_image.shape)
 preprocess_input(test_image) # doesn't change input dimensions
 
 
-
-
 # build pre-trained xception model
 model = Xception(include_top=False,
                  weights='imagenet',
